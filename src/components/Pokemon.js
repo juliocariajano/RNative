@@ -1,10 +1,41 @@
-import { SafeAreaView, Text } from 'react-native'
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { useRoute } from '@react-navigation/native'
+import { View, Text,ScrollView } from 'react-native'
+import {pokeDetail} from "../api/api"
+import Header from "./HeaderPokemon"
+import Type from "./TypePokemon"
+export default function Pokemon(props) {
+console.log("soy props",props)
+const { 
+  navigation,
+  route:{params},
+} = props
 
-export default function Pokemon() {
+const [pokemon, setPokemon]= useState(null)
+
+useEffect(()=>{
+  (async ()=>{
+    try {
+      const response = await pokeDetail(params.id)
+      console.log(response)
+      setPokemon(response)
+    } catch (error) {
+      navigation.goBack();
+    }
+  })()},[params])
+  
+  if(!pokemon) return null;
+
   return (
-    <SafeAreaView>
-      <Text>Estamos dentro de un pokemon</Text>
-    </SafeAreaView>
+    <ScrollView>
+        <Header
+        name={pokemon.name}
+        order={pokemon.order}
+        image={pokemon.sprites.other['official-artwork'].front_default}
+        type={pokemon.types[0].type.name}
+        />
+        <Type types={pokemon.types}/>
+    </ScrollView>
+        
   )
 }

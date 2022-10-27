@@ -20,7 +20,7 @@ export default function NavigationTab() {
         }}
         />
         <Tab.Screen 
-        name="Pokedex" 
+        name="MovieCard" 
         component={PokeNavigation}
         options={{
             tabBarLabel:"",
@@ -31,7 +31,7 @@ export default function NavigationTab() {
         name="Favorite" 
         component={FavoriteNavigation} 
         options={{
-            tabBarLabel:"Favoritos",
+            tabBarLabel:"Favorite",
             tabBarIcon:({color, size})=><Icon name="heart" color={color} size={size}/>
         }}
         />
