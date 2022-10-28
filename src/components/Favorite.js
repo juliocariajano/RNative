@@ -1,11 +1,15 @@
-import { SafeAreaView, Text } from 'react-native'
 import React from 'react'
-import { Icon } from 'react-native-vector-icons/FontAwesome5'
+import Icon  from 'react-native-vector-icons/FontAwesome5'
 
-export default function Favorite() {
+export default function Favorite(props) {
+ const {id}= props
+
+  const addFavorite =()=>{
+    console.log("Favorito",id )
+  }
+
   return (
-    <SafeAreaView>
-      <Text>Favorite</Text>
-    </SafeAreaView>
-  )
+   <Icon name="heart" color="#fff" size={20} onPress={addFavorite} style={{marginRight:20  }}
+
+   />  )
 }
