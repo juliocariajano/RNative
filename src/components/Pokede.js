@@ -5,7 +5,7 @@ import PokemonList from './PokemonList'
 export default function Pokede() {
 const [pokemons, setPokemons]=useState([])
 const [nextUrl, setNextUrl] = useState(null)
-console.log("pokemons", pokemons) 
+// console.log("pokemons", pokemons) 
 
 useEffect(()=>{
     (async ()=>{
