@@ -6,8 +6,8 @@ import {pokeDetail} from "../api/api"
 import Header from "./HeaderPokemon"
 import Type from "./TypePokemon"
 import Stats from './Stats'
-import Favorite from "../components/Favorite"
 import useAuth from './hooks/useAuth';
+import PokeFavorite from './PokeFavorite';
 
 export default function Pokemon(props) {
 console.log("soy props",props)
@@ -21,7 +21,7 @@ const {auth}= useAuth();
 
 useEffect(()=>{
 navigation.setOptions({
-  headerRight:()=>auth && <Favorite id={pokemon?.id}/>,
+  headerRight:()=>auth && <PokeFavorite id={pokemon?.id}/>,
   headerLeft:()=>(
   <Icon 
   name="arrow-left" 
