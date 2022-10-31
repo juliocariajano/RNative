@@ -10,12 +10,11 @@ import useAuth from './hooks/useAuth';
 import PokeFavorite from './PokeFavorite';
 
 export default function Pokemon(props) {
-console.log("soy props",props)
+// console.log("soy props",props)
 const { 
   navigation,
   route:{params},
 } = props
-
 const [pokemon, setPokemon]= useState(null)
 const {auth}= useAuth();
 

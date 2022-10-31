@@ -11,6 +11,7 @@ const getPokeApi = async (endpointUrl)=>{
     }
 }
 
+//funcion para pedir todos los detalles de los pokemon desde la api
 const getPokeApiDetail=async(url)=>{
 try {
     const response = await fetch(url);

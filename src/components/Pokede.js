@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { SafeAreaView, Text } from 'react-native'
 import { getPokeApi, getPokeApiDetail } from '../api/api'
 import PokemonList from './PokemonList'
+
 export default function Pokede() {
 const [pokemons, setPokemons]=useState([])
 const [nextUrl, setNextUrl] = useState(null)
@@ -10,12 +11,16 @@ const [nextUrl, setNextUrl] = useState(null)
 useEffect(()=>{
     (async ()=>{
       await loadPoke();
+      // console.log("hola pokedex")
     })();
   },[])
 
   const loadPoke = async()=>{
     try {
       const response = await getPokeApi(nextUrl);
+    //  const response = await getPokeApi();
+    // //  console.log(response)
+
       setNextUrl(response.next)
 
       const pokeArray = [];

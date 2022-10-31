@@ -5,6 +5,7 @@ import PokemonCard from './PokemonCard'
 export default function PokemonList(props) {
   const{pokemons, loadPoke, isNext} = props
   const loadMore =()=>{
+  // console.log ("list", pokemons)
     loadPoke();  }
     return (
     <FlatList
@@ -28,6 +29,7 @@ export default function PokemonList(props) {
         }
     />
   )
+  // <Text>Lista pokemon</Text>
 }
 
 const styles = StyleSheet.create({

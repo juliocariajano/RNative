@@ -18,6 +18,7 @@ export default function Favorite() {
           const response = await getPokemonsFavorite();
           //se reutiliza el codigo del componente pokede
           const pokeArray = [];
+         
           for await (const id of response){
             const pokemonDetail= await pokeDetail(id);
             pokeArray.push({
@@ -41,5 +42,8 @@ export default function Favorite() {
   return !auth ? (
       <NoLogged/>
       ) : (
-      <PokemonList pokemons ={pokemons}/>)
+      <PokemonList 
+      pokemons ={pokemons}
+      />
+      )
       }
